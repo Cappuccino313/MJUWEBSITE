@@ -1,0 +1,100 @@
+#matcha-comparison {
+  background-color: #b5c9d6b1;
+  min-height: 600px;
+  /* Adjust as needed */
+  display: flex;
+  align-items: center;
+}
+
+#matcha-comparison .container {
+  height: 100%;
+}
+
+#coffee-comparison {
+  background-color: #F0F2F4;
+  min-height: 600px;
+  /* Adjust as needed */
+  display: flex;
+  align-items: center;
+}
+
+#coffee-comparison .container {
+  height: 100%;
+}
+
+.robusta-icon {
+  color: #6B4F2A;
+}
+
+/* Dark coffee brown */
+.arabica-icon {
+  color: #8B5E3C;
+}
+
+/* Lighter coffee brown */
+
+.comparison-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  height: 100%;
+}
+
+.comparison-image svg {
+  width: 60px;
+  height: 60px;
+  color: #6B4F2A;
+  /* coffee brown */
+}
+
+.comparison-image {
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-image .matchaspan {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+}
+
+.coffeespan {
+  font-weight: 700px;
+  margin-left: 10px;
+  text-shadow: 1px 0.5px rgba(0, 0, 0, 0.6);
+  font-size: 5px;
+}
+
+.comparison-card svg {
+  color: #6B4F2A;
+  /* coffee brown */
+}
+
+.comparison-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.comparison-list li {
+  margin-bottom: 6px;
+}
+
+@media (min-width: 992px) {
+  #matcha-comparison {
+    min-height: 700px;
+  }
+}

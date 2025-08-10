@@ -1,0 +1,42 @@
+.card-number {
+    outline: 2px solid #0A3362;
+    /* Highlight color */
+    outline-offset: -2px;
+    /* Adjust to fit your design */
+    color: #0A3362;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 6px 12px;
+    font-size: 16px;
+    display: inline-block;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.label-badge {
+    background-color: #0A3362;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}

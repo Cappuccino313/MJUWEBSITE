@@ -1,0 +1,80 @@
+.article-card {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    height: 500px;
+    background: url('image/article1.avif') center/cover no-repeat;
+    border-radius: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Content to right side */
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    margin: 50px 10px 50px 10px;
+}
+
+.article-content {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 40%;
+    color: white;
+    text-align: left;
+}
+
+.article-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.article-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: #0A3362;
+}
+.article-card-2 {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    height: 500px;
+    background: url('image/article2.avif') center/cover no-repeat;
+    border-radius: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Content to right side */
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    margin: 50px 10px 50px 10px;
+}
+
+.article-content-2 {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 40%;
+    color: white;
+    text-align: left;
+}
