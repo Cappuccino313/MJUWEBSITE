@@ -73,13 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
           <div class="card w-100">
             <div class="product-img-wrapper position-relative">
-    <img src="${p.img}" class="card-img-top" alt="${escapeHtml(p.title)}" style="display:block; width:100%;">
-    <div class="quick-view-bar position-absolute bottom-0 start-0 w-100 text-center bg-dark text-white py-2" 
-         style="cursor:pointer;" data-index="${productIndex}">
-        Quick View
-    </div>
-</div>
-
+              <img src="${p.img}" class="card-img-top" alt="${escapeHtml(p.title)}">
+              <button class="quick-view-bar position-absolute bottom-0 start-0 w-100 text-center text-translate-middle-x" 
+                  data-index="${productIndex}">Quick View</button>
+            </div>
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">${escapeHtml(p.title)}</h5>
               <p class="card-text">${escapeHtml(p.desc)}</p>

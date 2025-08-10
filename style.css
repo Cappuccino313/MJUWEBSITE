@@ -256,13 +256,15 @@ input[type=number] {
     width: 100%;
     /* ensures same width as image */
     text-align: center;
-    background: rgba(156, 156, 156, 0.7);
+    background: rgba(131, 131, 131, 0.409);
     color: white;
+    font-weight: 500;
     padding: 6px 0;
     font-size: 14px;
     opacity: 0;
     transition: opacity 0.3s ease;
     cursor: pointer;
+    border: none;
 }
 
 .product-img-wrapper:hover .quick-view-bar {
