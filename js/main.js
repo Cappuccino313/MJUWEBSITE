@@ -1,29 +1,50 @@
-// ----- Base products -----
+// ----- Base products ----- //
 const baseProducts = [
-    { img: "image/productsimg/sc.avif", title: "SUGARCANE", desc: "Single Origin Colombia Decaf | Arabica Coffee Bean | Medium Dark", price: "RM52.00", country: "Brazil" },
-    { img: "image/productsimg/brewsets.avif", title: "Premium Coffee 2", desc: "Smooth and balanced flavor", price: "$21.99", country: "Colombia" },
-    { img: "image/productsimg/by.avif", title: "Premium Coffee 3", desc: "Bold and intense taste", price: "$23.99", country: "Ethiopia" },
-    { img: "image/productsimg/clb.jpg", title: "Premium Coffee 4", desc: "Light and fruity notes", price: "$20.99", country: "Kenya" },
-    { img: "image/coffee5.jpg", title: "Premium Coffee 5", desc: "A delightful morning brew", price: "$18.99", country: "Costa Rica" },
-    { img: "image/coffee6.jpg", title: "Premium Coffee 6", desc: "A perfect afternoon pick-me-up", price: "$22.99", country: "Guatemala" },
-    { img: "image/coffee7.jpg", title: "Premium Coffee 7", desc: "A robust and full-bodied flavor", price: "$24.99", country: "Honduras" },
-    { img: "image/coffee8.jpg", title: "Premium Coffee 8", desc: "A smooth and creamy blend", price: "$19.49", country: "Mexico" },
-    { img: "image/coffee9.jpg", title: "Premium Coffee 9", desc: "A rich and nutty aroma", price: "$20.49", country: "Peru" }
+    {
+        img: "image/productsimg/sc.avif",
+        title: "SUGARCANE",
+        desc: "Single Origin Colombia Decaf | Arabica Coffee Bean | Medium Dark",
+        price: "RM52.00",
+        country: "Columbia",
+        images: [
+            "image/productsimg/sc.avif",
+            "image/productsimg/columbiamap.avif",
+            "image/productsimg/grindsize.avif",
+            "image/productsimg/coffeebenefits.avif",
+            "image/productsimg/mjucup.avif"
+        ]
+    },
+    {
+        img: "image/productsimg/brewsets.avif",
+        title: "Hand Brew Coffee Sets",
+        desc: "MJU - 10 in 1 Coffee Brewing Gift Set Box | Hand-Brewed Coffee Filter Grinder Se",
+        price: "RM249.00",
+        country: "",
+        images: [
+            "image/productsimg/brewsets.avif"
+        ]
+    },
+    { img: "image/productsimg/by.avif", title: "BERRY YAMMY", desc: "BERRY YAMMY Single Origin Kenya | Arabica Coffee Bean | Light Medium", price: "RM45.00", country: "Kenya", images: ["image/productsimg/by.avif"] },
+    { img: "image/productsimg/clb.jpg", title: "COCOLOVEBERRY 4", desc: "COCOLOVEBERRY Blend Brazil x Ethiopia | Arabica Coffee Bean | Medium Dark", price: "RM35.00", country: "Brazil & Ethiopia", images: ["image/productsimg/clb.jpg"] },
+    { img: "image/productsimg/matchapremium.avif", title: "", desc: "(ReadyStock) SHIKI / Premium Ceremonial Grade Matcha Green Tea Powder - 30g", price: "RM89.00", country: "", images: ["image/productsimg/matchapremium.avif"] },
+    { img: "image/coffee6.jpg", title: "Premium Coffee 6", desc: "A perfect afternoon pick-me-up", price: "$22.99", country: "Guatemala", images: ["image/coffee6.jpg"] },
+    { img: "image/coffee7.jpg", title: "Premium Coffee 7", desc: "A robust and full-bodied flavor", price: "$24.99", country: "Honduras", images: ["image/coffee7.jpg"] },
 ];
 
-// ----- Generate full products list ----- //
+/* ----- Generate full products list (includes images copied from baseProducts) ----- */
 const products = Array.from({ length: 21 }, (_, i) => {
     const base = baseProducts[i % baseProducts.length];
     return {
         img: base.img,
-        title: `Premium Coffee ${i + 1}`,
+        title: base.title || `Premium Coffee ${i + 1}`,
         desc: base.desc,
-        price: `$${(15 + Math.random() * 10).toFixed(2)}`,
-        country: base.country
+        price: base.price || `$${(15 + Math.random() * 10).toFixed(2)}`,
+        country: base.country,
+        images: (base.images && base.images.length) ? base.images.slice() : [base.img]
     };
 });
 
-// ----- Carousel logic ----- //
+/* ----- Carousel & Quick View logic ----- */
 document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const cardsPerPage = 4;
@@ -49,52 +70,58 @@ document.addEventListener('DOMContentLoaded', () => {
             const productIndex = (currentIndex + i) % products.length;
             const p = products[productIndex];
             cardGroup.innerHTML += `
-            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                <div class="card">
-                    <img src="${p.img}" class="card-img-top" alt="${escapeHtml(p.title)}">
-                    <div class="card-body">
-                        <h5 class="card-title">${escapeHtml(p.title)}</h5>
-                        <p class="card-text">${escapeHtml(p.desc)}</p>
-                        <p class="card-text fw-bold">${escapeHtml(p.price)}</p>
-                        <p class="card-text text-muted small">${escapeHtml(p.country)}</p>
-                        <button class="btn my-btn view-product mt-2" data-index="${productIndex}">Add-to-cart</button>
-                    </div>
-                </div>
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+          <div class="card w-100">
+            <div class="product-img-wrapper position-relative">
+    <img src="${p.img}" class="card-img-top" alt="${escapeHtml(p.title)}" style="display:block; width:100%;">
+    <div class="quick-view-bar position-absolute bottom-0 start-0 w-100 text-center bg-dark text-white py-2" 
+         style="cursor:pointer;" data-index="${productIndex}">
+        Quick View
+    </div>
+</div>
+
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${escapeHtml(p.title)}</h5>
+              <p class="card-text">${escapeHtml(p.desc)}</p>
+              <p class="card-text fw-bold">${escapeHtml(p.price)}</p>
+              <p class="card-text text-muted small">${escapeHtml(p.country)}</p>
+              <button class="btn my-btn view-product mt-auto" data-index="${productIndex}">Add-to-cart</button>
             </div>
-            `;
+          </div>
+        </div>
+      `;
         }
+        equalizeCardHeights();
         renderPaginationDots();
+    }
+
+    function equalizeCardHeights() {
+        const cards = cardGroup.querySelectorAll('.card');
+        let maxHeight = 0;
+        cards.forEach(card => card.style.height = 'auto');
+        cards.forEach(card => maxHeight = Math.max(maxHeight, card.offsetHeight));
+        cards.forEach(card => card.style.height = maxHeight + 'px');
     }
 
     function renderPaginationDots() {
         pagination.innerHTML = '';
         const total = products.length;
-
-        // Keep current dot in the middle unless near start or end
         let start = currentIndex - Math.floor(visibleDots / 2);
         if (start < 0) start = 0;
         if (start > total - visibleDots) start = total - visibleDots;
-
         const end = start + visibleDots;
-
         for (let i = start; i < end; i++) {
             const dot = document.createElement('span');
             dot.className = 'product-dot';
-
-            // Active dot = always the middle one in the window
             const middleDotIndex = start + Math.floor(visibleDots / 2);
             if (i === middleDotIndex) dot.classList.add('active');
-
             dot.addEventListener('click', () => {
-                // Jump so that clicked dot becomes middle
                 currentIndex = i;
                 renderCards();
             });
-
             pagination.appendChild(dot);
         }
     }
-
 
     prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + products.length) % products.length;
@@ -106,9 +133,90 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCards();
     });
 
+    // Event delegation for Quick View & Add to Cart
+    cardGroup.addEventListener('click', (e) => {
+        const qBtn = e.target.closest('.quick-view-btn');
+        if (qBtn) {
+            const idx = parseInt(qBtn.getAttribute('data-index'), 10);
+            openQuickView(products[idx]);
+            return;
+        }
+        const addBtn = e.target.closest('.view-product');
+        if (addBtn) {
+            const idx = parseInt(addBtn.getAttribute('data-index'), 10);
+            console.log('Add to cart clicked for', products[idx].title);
+            return;
+        }
+    });
+
+    function openQuickView(product) {
+        document.getElementById('modal-product-title').textContent = product.title || '';
+        document.getElementById('modal-product-desc').textContent = product.desc || '';
+        document.getElementById('modal-product-price').textContent = product.price || '';
+
+        const images = (product.images && product.images.length) ? product.images : [product.img];
+        const carouselEl = document.getElementById('productCarousel');
+        const carouselInner = carouselEl.querySelector('.carousel-inner');
+        const carouselIndicators = carouselEl.querySelector('.carousel-indicators');
+        const prevControl = carouselEl.querySelector('.carousel-control-prev');
+        const nextControl = carouselEl.querySelector('.carousel-control-next');
+
+        carouselInner.innerHTML = '';
+        carouselIndicators.innerHTML = '';
+
+        images.forEach((src, i) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-item' + (i === 0 ? ' active' : '');
+            slide.innerHTML = `<img src="${src}" class="d-block w-100" alt="product image ${i + 1}" style="object-fit:cover;">`;
+            carouselInner.appendChild(slide);
+
+            if (images.length > 1) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.setAttribute('data-bs-target', '#productCarousel');
+                btn.setAttribute('data-bs-slide-to', String(i));
+                btn.className = (i === 0 ? 'active' : '');
+                btn.setAttribute('aria-label', `Slide ${i + 1}`);
+                carouselIndicators.appendChild(btn);
+            }
+        });
+
+        prevControl.style.display = images.length > 1 ? '' : 'none';
+        nextControl.style.display = images.length > 1 ? '' : 'none';
+        carouselIndicators.style.display = images.length > 1 ? '' : 'none';
+
+        const oldInstance = bootstrap.Carousel.getInstance(carouselEl);
+        if (oldInstance) oldInstance.dispose();
+        const carouselInstance = new bootstrap.Carousel(carouselEl, { interval: 3000, touch: true, wrap: true });
+        if (images.length > 1) carouselInstance.cycle();
+        else carouselInstance.pause();
+
+        const modalEl = document.getElementById('quickViewModal');
+        const bsModal = new bootstrap.Modal(modalEl);
+        modalEl.addEventListener('shown.bs.modal', () => {
+            const rightCol = modalEl.querySelector('.modal-body .row .col-md-6:last-child');
+            const targetHeight = rightCol ? rightCol.clientHeight : 400;
+            carouselInner.querySelectorAll('img').forEach(img => {
+                img.style.height = targetHeight + 'px';
+                img.style.objectFit = 'cover';
+            });
+        }, { once: true });
+
+        new bootstrap.Modal(document.getElementById('quickViewModal')).show();
+    }
+
+    // Quantity buttons
+    document.getElementById('qty-minus').addEventListener('click', () => {
+        const qty = document.getElementById('quantity');
+        qty.value = Math.max(1, parseInt(qty.value) - 1);
+    });
+    document.getElementById('qty-plus').addEventListener('click', () => {
+        const qty = document.getElementById('quantity');
+        qty.value = parseInt(qty.value) + 1;
+    });
+
     renderCards();
 });
-
 
 
 

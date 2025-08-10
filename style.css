@@ -114,6 +114,13 @@ header .container ul li a:hover {
     text-decoration: none;
 }
 
+.section-titile {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #201106;
+    margin-bottom: 20px;
+}
+
 #cartSidebar.offcanvas-end {
     width: 550px;
     /* Change to your desired width */
@@ -192,6 +199,76 @@ header .container ul li a:hover {
     padding-right: 80px;
     padding-bottom: 50px;
 }
+
+.product-img-wrapper {
+    position: relative;
+}
+
+
+/* Make modal columns equal height */
+#quickViewModal .modal-body .row {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Carousel fills left column height */
+#quickViewModal .col-md-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make carousel take full height */
+#quickViewModal #productCarousel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force images to fill height while keeping aspect ratio */
+#quickViewModal .carousel-item img {
+    width: 100%;
+    height: auto;
+    /* JS will override this */
+    display: block;
+}
+
+
+/* Remove arrows from number input in Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove arrows from number input in Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.product-img-wrapper {
+    position: relative;
+}
+
+.quick-view-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* ensures same width as image */
+    text-align: center;
+    background: rgba(156, 156, 156, 0.7);
+    color: white;
+    padding: 6px 0;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.product-img-wrapper:hover .quick-view-bar {
+    opacity: 1;
+}
+
 
 .card-group {
     flex-wrap: wrap;

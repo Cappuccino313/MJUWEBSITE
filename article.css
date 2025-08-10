@@ -24,12 +24,6 @@
     text-align: left;
 }
 
-.article-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 .article-text {
     font-size: 0.9rem;
     line-height: 1.4;
