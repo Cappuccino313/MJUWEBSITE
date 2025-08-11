@@ -241,75 +241,77 @@
     </section>
 
     <!-- Quick View Modal -->
-    <!-- Quick View Modal -->
-<div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="row g-4">
-          
-          <!-- Left: Carousel -->
-          <div class="col-md-6">
-            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div id="carousel-indicators" class="carousel-indicators"></div>
-              <div class="carousel-inner"></div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-              </button>
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row g-4">
+
+                        <!-- Left: Carousel -->
+                        <div class="col-md-6">
+                            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div id="carousel-indicators" class="carousel-indicators"></div>
+                                <div class="carousel-inner"></div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right: Product Details -->
+                        <div class="col-md-6 d-flex flex-column">
+                            <h4 id="modal-product-title"></h4>
+                            <p id="modal-product-desc"></p>
+                            <p class="fw-bold" id="modal-product-price"></p>
+
+                            <!-- Packaging -->
+                            <div class="mb-3">
+                                <label for="packaging" class="form-label">Packaging</label>
+                                <select id="packaging" class="form-select">
+                                    <option>Select</option>
+                                    <option>250g Bag</option>
+                                    <option>500g Bag</option>
+                                    <option>1kg Bag (500g x 2)</option>
+                                </select>
+                            </div>
+
+                            <!-- Grind Size -->
+                            <div class="mb-3">
+                                <label for="grind-size" class="form-label">Grind Size</label>
+                                <select id="grind-size" class="form-select">
+                                    <option>Select</option>
+                                    <option>Whole Bean</option>
+                                    <option>Coarse</option>
+                                    <option>Medium</option>
+                                    <option>Fine</option>
+                                </select>
+                            </div>
+
+                            <!-- Quantity -->
+                            <div class="mb-3 d-flex align-items-center">
+                                <label class="me-3">Quantity</label>
+                                <div class="input-group" style="width: 140px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="qty-minus">-</button>
+                                    <input type="number" id="quantity" class="form-control text-center" value="1"
+                                        min="1">
+                                    <button class="btn btn-outline-secondary" type="button" id="qty-plus">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Add to Cart -->
+                            <button class="btn my-btn w-100 mt-auto" id="add-to-cart-btn">Add to Cart</button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- Right: Product Details -->
-          <div class="col-md-6 d-flex flex-column">
-            <h4 id="modal-product-title"></h4>
-            <p id="modal-product-desc"></p>
-            <p class="fw-bold" id="modal-product-price"></p>
-
-            <!-- Packaging -->
-            <div class="mb-3">
-              <label for="packaging" class="form-label">Packaging</label>
-              <select id="packaging" class="form-select">
-                <option>Select</option>
-                <option>250g Bag</option>
-                <option>500g Bag</option>
-                <option>1kg Bag (500g x 2)</option>
-              </select>
-            </div>
-
-            <!-- Grind Size -->
-            <div class="mb-3">
-              <label for="grind-size" class="form-label">Grind Size</label>
-              <select id="grind-size" class="form-select">
-                <option>Select</option>
-                <option>Whole Bean</option>
-                <option>Coarse</option>
-                <option>Medium</option>
-                <option>Fine</option>
-              </select>
-            </div>
-
-            <!-- Quantity -->
-            <div class="mb-3 d-flex align-items-center">
-              <label class="me-3">Quantity</label>
-              <div class="input-group" style="width: 140px;">
-                <button class="btn btn-outline-secondary" type="button" id="qty-minus">-</button>
-                <input type="number" id="quantity" class="form-control text-center" value="1" min="1">
-                <button class="btn btn-outline-secondary" type="button" id="qty-plus">+</button>
-              </div>
-            </div>
-
-            <!-- Add to Cart -->
-            <button class="btn my-btn w-100 mt-auto" id="add-to-cart-btn">Add to Cart</button>
-          </div>
-
         </div>
-      </div>
     </div>
-  </div>
-</div>
 
 
     <section id="coffee-comparison" style="padding: 80px 0;">

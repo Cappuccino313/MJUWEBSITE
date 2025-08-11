@@ -27,8 +27,8 @@ const baseProducts = [
     { img: "image/productsimg/by.avif", title: "BERRY YAMMY", desc: "BERRY YAMMY Single Origin Kenya | Arabica Coffee Bean | Light Medium", price: "RM45.00", country: "Kenya", images: ["image/productsimg/by.avif"] },
     { img: "image/productsimg/clb.jpg", title: "COCOLOVEBERRY 4", desc: "COCOLOVEBERRY Blend Brazil x Ethiopia | Arabica Coffee Bean | Medium Dark", price: "RM35.00", country: "Brazil & Ethiopia", images: ["image/productsimg/clb.jpg"] },
     { img: "image/productsimg/matchapremium.avif", title: "", desc: "(ReadyStock) SHIKI / Premium Ceremonial Grade Matcha Green Tea Powder - 30g", price: "RM89.00", country: "", images: ["image/productsimg/matchapremium.avif"] },
-    { img: "image/coffee6.jpg", title: "Premium Coffee 6", desc: "A perfect afternoon pick-me-up", price: "$22.99", country: "Guatemala", images: ["image/coffee6.jpg"] },
-    { img: "image/coffee7.jpg", title: "Premium Coffee 7", desc: "A robust and full-bodied flavor", price: "$24.99", country: "Honduras", images: ["image/coffee7.jpg"] },
+    { img: "image/productsimg/bts.avif", title: "", desc: "BITTERSWEET Single Origin Sumatra | Arabica Coffee Bean", price: "RM34.00", country: "Sumatra", images: ["image/coffee6.jpg"] },
+    { img: "image/productsimg/manypro.avif", title: "", desc: "Coffee Taster Pack Set | Bundle Set Arabica Coffee Bean", price: "RM56.00", country: "", images: ["image/coffee7.jpg"] },
 ];
 
 /* ----- Generate full products list (includes images copied from baseProducts) ----- */
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { once: true });
 
-        new bootstrap.Modal(document.getElementById('quickViewModal')).show();
+        bsModal.show();
     }
 
     // Quantity buttons
